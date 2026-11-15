@@ -1,0 +1,11 @@
+man 2 fork
+man 2 getpid
+man 3 exec
+man unistd.h
+man sys_types.h
+
+ps -o pid,ppid,stat,comm -p <PID>
+cat /proc/<PID>/status
+
+gcc -std=c11 -Wall -Wextra -g 02-process-lifecycle.c \
+    -o 02-process-lifecycle

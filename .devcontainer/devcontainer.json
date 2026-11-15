@@ -1,0 +1,32 @@
+{
+  "name": "sysforge — Debian 13 Unix sandbox",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "remoteUser": "vscode",
+  // gdb follows forks and threads with ptrace. The default Docker
+  // seccomp profile blocks some of the clone/personality calls those
+  // labs use, so the profile is lifted inside this sandbox.
+  "capAdd": ["SYS_PTRACE"],
+  "securityOpt": ["seccomp=unconfined"],
+  // No "init": true. An init process would reap orphans, which hides
+  // zombies when a parent exits without wait. PID 1 here does not wait.
+  // /dev/shm is where POSIX semaphores and shm_open live; 64 MB is tight
+  // once several processes map it. Core dumps are allowed for gdb.
+  "runArgs": ["--shm-size=256m", "--ulimit", "core=-1", "--name=sysforge-sandbox"],
+  "containerEnv": {
+    "LANG": "en_US.UTF-8",
+    "LC_ALL": "en_US.UTF-8"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-vscode.cpptools"],
+      "settings": {
+        "C_Cpp.default.compilerPath": "/usr/bin/gcc",
+        "C_Cpp.default.intelliSenseMode": "linux-gcc-x64",
+        "C_Cpp.default.cStandard": "gnu17",
+        "C_Cpp.default.cppStandard": "gnu++17"
+      }
+    }
+  }
+}

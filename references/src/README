@@ -1,0 +1,29 @@
+filelock.c      File locking, record based update
+deadlock.c      File locking, deadlock and prevention
+dining.c        Dining philosophers nx1 semaphores, deadlock
+dining2.c       Dining philosophers 1xn semaphores, deadlock free
+dining-mt.c     Dining philosophers multithread
+sharedit.c      mmap() based shared simple text editor.
+shmem.c         Multiprocess concurrent matrix multiplication with shared memory
+testfile.inp    test input for shmem.c
+testsig.c       Simple signal handler application
+signalsshow.c   Sigaction demo with generating/handling many signals
+messqsrv.c      Message queue sample with airport service
+messqcli.c      Message queue sample client (flight generator)
+pipe/pipe1.c    pipe sample 1
+pipe/pipe2.c    pipe sample 2
+pipe/pipe3.c    pipe sample, master slave unidirectional
+pipe/pipe4.c    pipe sample, master slave bidirectional
+pipe/select.c   select() on multiple pipes
+pipe/sigchld.c  sigchld handling with safe/unsafe versions
+pthread/hw.c    hello threads
+pthread/sort.c  parallem merge sort with threads
+pthread/producerconsumer.cpp    producer consumer problem
+pthread/cleanup.c   pthread_cleanup()
+pthread/pthreadtls.c    __thread and Thread local storage
+socket/ping.c          DGRAM ping, pong client
+socket/pong.c          DGRAM ping, pong server
+socket/unixdatagr-c.c  AF_UNIX DGRAM client
+socket/unixdatagr-s.c  AF_UNIX DGRAM server
+socket/unixstream-s.c  AF_UNIX stream server
+socket/untelnet.c      AF_UNIX stream client
